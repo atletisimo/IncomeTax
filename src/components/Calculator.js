@@ -15,8 +15,11 @@ const Calculator = () => {
     let result = inputData - part;
     return result;
   }
-  function calculateWeeklyNet() {
+ function calculateWeeklyNet() {
     const hours = 40;
+    const part = (inputData /4)
+    let result = part * tax;
+    return part-result;
 
   }
   function calculateMonthlyNet() {
@@ -45,7 +48,7 @@ const Calculator = () => {
   function changeColor2() {
     setChangeColor2(!color2);
     calculateNet();
-   
+   calculateWeeklyNet();
   }
   function changeColor3() {
     setChangeColor3(!color3);
