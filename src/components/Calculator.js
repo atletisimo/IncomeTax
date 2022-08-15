@@ -1,10 +1,10 @@
 import React, { useState, useRef } from "react";
 import DataTable from "./DataTable";
 const Calculator = () => {
-  const [color1, setChangeColor1] = React.useState(false);
-  const [color2, setChangeColor2] = React.useState(false);
-  const [color3, setChangeColor3] = React.useState(false);
-  const [dataTable, setDataTable] = React.useState(false);
+  const [color1, setChangeColor1] = useState(false);
+  const [color2, setChangeColor2] = useState(false);
+  const [color3, setChangeColor3] = useState(false);
+  const [dataTable, setDataTable] = useState(false);
   const [inputData, setInputData] = useState(null);
   const tax = 0.12; //12 percentage
   const taxValue = 0.12 * 100;
