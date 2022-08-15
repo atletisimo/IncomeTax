@@ -22,9 +22,7 @@ const Calculator = () => {
     return part-result;
 
   }
-  function calculateMonthlyNet() {
-    const hours = 160;
-  }
+
    function calculateForthNet(){
     const hours = 80;
     const part = (inputData /2)
