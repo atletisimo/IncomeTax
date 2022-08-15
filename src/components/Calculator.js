@@ -25,6 +25,13 @@ const Calculator = () => {
   function calculateMonthlyNet() {
     const hours = 160;
   }
+   function calculateForthNet(){
+    const hours = 80;
+    const part = (inputData /2)
+    let result = part * tax;
+    return part-result;
+
+  }
 
   function getInputData(e) {
     setInputData(e.target.value);
@@ -49,6 +56,7 @@ const Calculator = () => {
     setChangeColor2(!color2);
     calculateNet();
    calculateWeeklyNet();
+     calculateForthNet()
   }
   function changeColor3() {
     setChangeColor3(!color3);
