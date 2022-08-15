@@ -7,7 +7,21 @@ const Calculator = () => {
   const [dataTable, setDataTable] = useState(false);
   const [inputData, setInputData] = useState(null);
  
+  const tax = 0.12;//12 percentage
+  
+  function calculateNet() {
+    
+    const part = inputData * tax;
+    let result = inputData - part;
+    return result;
+  }
+  function calculateWeeklyNet() {
+    const hours = 40;
 
+  }
+  function calculateMonthlyNet() {
+    const hours = 160;
+  }
 
   function getInputData(e) {
     setInputData(e.target.value);
@@ -30,6 +44,7 @@ const Calculator = () => {
   }
   function changeColor2() {
     setChangeColor2(!color2);
+    calculateNet();
    
   }
   function changeColor3() {
