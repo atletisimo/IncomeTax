@@ -1,6 +1,6 @@
 import React from "react";
 
-const DataTable = ({ vrednost,netoWeek,netoMonth,tax }) => {
+const DataTable = ({ vrednost,netoWeek,netoMonth,tax,netoYear,netoForth,grossMonth,grossYear,grossWeek,grossForth }) => {
   return (
     <div className="table">
       {netoWeek}
@@ -24,21 +24,25 @@ const DataTable = ({ vrednost,netoWeek,netoMonth,tax }) => {
         </tr>
        
         <tr class="text-white">Weekly
-        <td></td>
-        <td>{tax} %</td>
+          <td>{grossWeek}</td>
+          <td>{tax} %</td>
+          <td>{netoWeek}</td>
         </tr>
         <tr class="text-white">Fortnightly
-        <td></td>
-        <td>{tax} %</td>
+          <td>{grossForth}</td>
+          <td>{tax} %</td>
+          <td>{netoForth}</td>
         
         </tr>
         <tr class="text-white">Monthly
-        <td></td>
-        <td>{tax} %</td>
+          <td>{grossMonth}</td>
+          <td>{tax} %</td>
+          <td>{netoMonth}</td>
         </tr>
         <tr class="text-white">Anually
-        <td></td>
-        <td>{tax} %</td>
+          <td>{grossYear}</td>
+          <td>{tax} %</td>
+          <td>{netoYear}</td>
         </tr>
         
       </table>
@@ -47,4 +51,5 @@ const DataTable = ({ vrednost,netoWeek,netoMonth,tax }) => {
 };
 
 export default DataTable;
+
 
