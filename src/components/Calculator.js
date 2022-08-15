@@ -1,34 +1,47 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import DataTable from "./DataTable";
 const Calculator = () => {
-  const [color1, setChangeColor1] = useState(false);
-  const [color2, setChangeColor2] = useState(false);
-  const [color3, setChangeColor3] = useState(false);
-  const [dataTable, setDataTable] = useState(false);
+  const [color1, setChangeColor1] = React.useState(false);
+  const [color2, setChangeColor2] = React.useState(false);
+  const [color3, setChangeColor3] = React.useState(false);
+  const [dataTable, setDataTable] = React.useState(false);
   const [inputData, setInputData] = useState(null);
- 
-  const tax = 0.12;//12 percentage
-  
-  function calculateNet() {
-    
+  const tax = 0.12; //12 percentage
+  const taxValue = 0.12 * 100;
+
+  function calculateMonthlyGross() {
+    return inputData;
+  }
+  function calculateWeeklyGross() {
+    return inputData / 4;
+  }
+  function calculateForthGross() {
+    return (inputData/4) * 2;
+  }
+  function calculateAnuallyGross() {
+    return calculateMonthlyGross() * 12;
+  }
+
+  function calculateMonthlyNet() {
     const part = inputData * tax;
     let result = inputData - part;
     return result;
   }
- function calculateWeeklyNet() {
+  function calculateWeeklyNet() {
     const hours = 40;
-    const part = (inputData /4)
+    const part = inputData / 4;
     let result = part * tax;
-    return part-result;
-
+    return part - result;
+  }
+  function calculateAnuallyNet() {
+    return calculateMonthlyNet() * 12;
   }
 
-   function calculateForthNet(){
+  function calculateForthNet() {
     const hours = 80;
-    const part = (inputData /2)
+    const part = inputData / 2;
     let result = part * tax;
-    return part-result;
-
+    return part - result;
   }
 
   function getInputData(e) {
@@ -36,25 +49,28 @@ const Calculator = () => {
   }
 
   const getInitialState = () => {
-   const value = "Weekly";
-   return value;
+    const value = "Monthly";
+    return value;
   };
-  
 
   const [value, setValue] = useState(getInitialState);
-
 
   const handleChange = (e) => {
     setValue(e.target.value);
   };
   function changeColor1() {
     setChangeColor1(!color1);
+    console.log(calculateMonthlyGross());
+    console.log(calculateWeeklyGross());
+    console.log(calculateForthGross());
+    console.log(calculateAnuallyGross())
   }
   function changeColor2() {
     setChangeColor2(!color2);
-    calculateNet();
-   calculateWeeklyNet();
-     calculateForthNet()
+   calculateMonthlyNet();
+    calculateWeeklyNet();
+    console.log(calculateForthNet());
+    console.log(calculateAnuallyNet());
   }
   function changeColor3() {
     setChangeColor3(!color3);
@@ -62,7 +78,9 @@ const Calculator = () => {
   }
   return (
     <div class=" max-w-lg relative left-1/3 top-48 bg-gray-900">
-        <h2 class=" bg-red-700 font-bold text-xl max-w-lg relative  ">Income tax calculator</h2>
+      <h2 class=" bg-red-700 font-bold text-xl max-w-lg relative  ">
+        Income tax calculator
+      </h2>
       <label class="text-white" for="income">
         What is your income
         <br></br>
@@ -113,7 +131,7 @@ const Calculator = () => {
       >
         Continue
       </button>
-      {dataTable && <DataTable vrednost={inputData}  />}
+      {dataTable && <DataTable vrednost={inputData} netoWeek={calculateWeeklyNet} netoMonth={calculateMonthlyNet()} tax={taxValue} />}
     </div>
   );
 };
