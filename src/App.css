@@ -1,0 +1,17 @@
+body{
+  background: rgb(2,0,36);
+  background: linear-gradient(90deg, rgb(190, 9, 15) 0%, rgb(224, 215, 215) 55%, rgba(2,0,36,1) 100%);
+}
+
+#gray{
+  background:rgb(156, 148, 148);
+  
+}
+
+#red{
+  background:rgb(196, 16, 16);
+  
+}
+.hidden{
+ display: none;
+}
